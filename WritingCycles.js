@@ -1,3 +1,4 @@
+
 let num = 10
 let i = 0
 let arr = []
@@ -19,7 +20,7 @@ while (k <= 10) {
     k++
 }
 alert(`Multiplication table by 7:
- ${tablMultSeven}`)
+ ${tablMultSeven.join(' ')}`)
 /******************************************************************/
 let n = 0
 let sum = 0
@@ -102,17 +103,24 @@ let  multiplicationTableAll = []
 let m = 1
 let d = 1
 while (m <= 11 && d <= 10) {
-    multiplicationTable[(m - 1) + (d - 1)*10] = `${m} * ${(d)} = ${m * d}\n`
-    multiplicationTableAll.push(multiplicationTable[(m - 1) + (d - 1)*10])
+multiplicationTable[(m - 1) + (d - 1)*10] = `${  m * d}`
+    if (m*d < 10) {
+        multiplicationTableAll.push('')
+    }
+multiplicationTableAll.push(multiplicationTable[(m - 1) + (d - 1)*10])
     m++
     if (m === 11) {
+        multiplicationTableAll.push(`\n`)
+        multiplicationTableAll.push(`${d + 1  }`)
         d++
         m = m - 10
+
     }
 }
 alert(`Multiplication table :
- ${multiplicationTableAll}`)
-alert(`Length array Multiplication table : ${multiplicationTableAll.length}`)
+        1    2    3    4    5    6    7    8    9  10
+  1  ${multiplicationTableAll.join('  ')}`)
+
 
 
 
