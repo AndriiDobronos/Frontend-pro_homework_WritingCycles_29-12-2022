@@ -61,24 +61,26 @@ while (!Number.isInteger(f / 3 )) {
 }
 let arrayMultOfThree = []
 let divisibleNumber = f
-let w = 0
 while (divisibleNumber <= 200) {
-    arrayMultOfThree[w] = divisibleNumber
-    w++
+    arrayMultOfThree.push(divisibleNumber)
     divisibleNumber = divisibleNumber + 3
 }
 alert(`Divisible by three number from 100 to 200 : ${arrayMultOfThree}`)
 /*************************************************************************/
-let numberOfUser = Number(prompt('Enter the number' +
-    'of divisors you want to know',""))
+let numberOfUser = prompt('Enter the number' +
+    'of divisors you want to know',"")
+
+if (numberOfUser === null || numberOfUser.trim() === "" ||
+    isNaN(+numberOfUser) === true) {
+    alert(`Entered number is not validation`)
+}
 let arrayDivisors = []
 let int = 0
-let b = -1
-while (int <= numberOfUser) {
+while (int <= Number(numberOfUser)) {
     int++
-    b++
-    (Number.isInteger(numberOfUser / int)) ? arrayDivisors[b] = int :
-        b = b - 1
+    if (Number.isInteger(+numberOfUser / int)) {
+        arrayDivisors.push(int)
+    }
 }
 alert(`This number : ${numberOfUser} can be divided into : ${arrayDivisors}`)
 /**************************************************************/
